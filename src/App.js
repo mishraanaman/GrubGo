@@ -24,9 +24,10 @@ const About = lazy(() => import("./components/About"));
 // Dynamic Import
 
 const AppLayout = () => {
+
   const [user, setUser] = useState({
-    name: "Akshay Saini",
-    email: "support@namastedev.com",
+    name: "Naman Mishra",
+    email: "reachoutnaman@gmail.com",
   });
 
   return (
@@ -44,6 +45,7 @@ const AppLayout = () => {
     </Provider>
   );
 };
+
 const appRouter = createBrowserRouter([
   {
     path: "/",

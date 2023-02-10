@@ -31,7 +31,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-5 bg-pink-50 my-5">
+      <div className="search-container pl-5 bg-pink-50 my-5 h-15">
         <input
           data-testid="search-input"
           type="text"
@@ -54,24 +54,6 @@ const Body = () => {
         >
           Search
         </button>
-        <input
-          value={user.name}
-          onChange={(e) =>
-            setUser({
-              ...user,
-              name: e.target.value,
-            })
-          }
-        ></input>
-        <input
-          value={user.email}
-          onChange={(e) =>
-            setUser({
-              ...user,
-              email: e.target.value,
-            })
-          }
-        ></input>
       </div>
       <div className="flex flex-wrap " data-testid="res-list">
         {/* You have to write logic for NO restraunt fount here */}

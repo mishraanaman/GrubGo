@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import Logo from "../assets/img/foodvilla.png";
+import Logo from "../assets/img/clipart-brain-mental-health-13.webp";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const Title = () => (
   <a href="/">
-    <img data-testid="logo" className="h-28 p-2" alt="logo" src={Logo} />
+    <img data-testid="logo" className="h-20 p-2 " alt="logo" src={Logo} />
   </a>
 );
 
@@ -25,37 +25,41 @@ const Header = () => {
   console.log(cartItems);
 
   return (
-    <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
+    <div className="flex justify-between bg-sky-100 h-20">
       <Title />
       <div className="nav-items">
         <ul className="flex py-10">
-          <li className="px-2">
+          <li className="px-2 font-bold">
             <Link to="/">Home</Link>
           </li>
 
           <Link to="/about">
-            <li className="px-2">About</li>
+            <li className="font-bold px-2">About</li>
           </Link>
           <Link to="/contact">
-            <li className="px-2">Contact</li>
+            <li className="font-bold px-2">Contact</li>
           </Link>
           <Link to="/instamart">
-            <li className="px-2">Instamart</li>
+            <li className="font-bold px-2">Instamart</li>
           </Link>
           <Link to="/cart">
-            <li className="px-2" data-testid="cart">
+            <li className="font-bold px-2" data-testid="cart">
               Cart- {cartItems.length} items
             </li>
           </Link>
         </ul>
       </div>
+
       <h1 data-testid="online-status">{isOnline ? "✅" : "🔴"}</h1>
-      <span className="p-10 font-bold text-red-900">{user.name}</span>
+
+      <span className="p-10 font-bold">{user.name}</span>
+
       {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+        <button onClick={() => setIsLoggedIn(false)} className="font-bold mr-5 my-4 shadow-md px-2 bg-red-300">Logout</button>
       ) : (
-        <button onClick={() => setIsLoggedIn(true)}>Login</button>
+        <button onClick={() => setIsLoggedIn(true)} className="font-bold mr-5 my-4 shadow-md px-2 bg-green-200">Login</button>
       )}
+
     </div>
   );
 };
