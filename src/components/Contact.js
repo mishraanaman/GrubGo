@@ -1,5 +1,11 @@
+import { Formik } from 'formik';
+
+
 const Contact = () => {
-  return <h1>Contact Us Page</h1>;
+  return (
+  <>
+  <h1>Contact Us Page</h1>
+  </>);
 };
 
 export default Contact;

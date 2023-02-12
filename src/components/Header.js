@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import Logo from "../assets/img/clipart-brain-mental-health-13.webp";
+import Logo from "../assets/img/food-order-icon.webp";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const Title = () => (
   <a href="/">
-    <img data-testid="logo" className="h-20 p-2 " alt="logo" src={Logo} />
+    <img data-testid="logo" className="h-20 p-2 ml-2 rounded-full ring-1 ring-gray-300" alt="logo" src={Logo} />
   </a>
 );
 
@@ -25,7 +25,7 @@ const Header = () => {
   console.log(cartItems);
 
   return (
-    <div className="flex justify-between bg-sky-100 h-20">
+    <div className="flex justify-between h-20 bg-sky-600 text-white">
       <Title />
       <div className="nav-items">
         <ul className="flex py-10">
@@ -34,13 +34,10 @@ const Header = () => {
           </li>
 
           <Link to="/about">
-            <li className="font-bold px-2">About</li>
+            <li className="font-bold px-2">About Us</li>
           </Link>
           <Link to="/contact">
             <li className="font-bold px-2">Contact</li>
-          </Link>
-          <Link to="/instamart">
-            <li className="font-bold px-2">Instamart</li>
           </Link>
           <Link to="/cart">
             <li className="font-bold px-2" data-testid="cart">
@@ -50,14 +47,16 @@ const Header = () => {
         </ul>
       </div>
 
-      <h1 data-testid="online-status">{isOnline ? "✅" : "🔴"}</h1>
+      <span className="p-10 font-bold">{isLoggedIn? user.name: ``}</span>
 
-      <span className="p-10 font-bold">{user.name}</span>
+
 
       {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)} className="font-bold mr-5 my-4 shadow-md px-2 bg-red-300">Logout</button>
+        <button onClick={() => setIsLoggedIn(false)} className="font-bold mr-5 my-4 shadow-md px-1 bg-red-400 transition delay-250 rounded-lg w-24 h-10">Logout</button>  
       ) : (
-        <button onClick={() => setIsLoggedIn(true)} className="font-bold mr-5 my-4 shadow-md px-2 bg-green-200">Login</button>
+        <Link to="/login">
+        <button onClick={() => setIsLoggedIn(true)} className="font-bold mr-5 my-4 shadow-md px-1 bg-green-400 transition delay-250 rounded-lg w-24 h-10">Login</button>
+        </Link>
       )}
 
     </div>

@@ -31,7 +31,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container pl-5 bg-pink-50 my-5 h-15">
+      <div className="search-container pl-5 bg-sky-50 my-5 h-15">
         <input
           data-testid="search-input"
           type="text"
@@ -44,7 +44,7 @@ const Body = () => {
         />
         <button
           data-testid="search-btn"
-          className="p-2 m-2 bg-purple-900 hover:bg-gray-500 text-white rounded-md"
+          className="p-2 m-2 bg-sky-600 hover:bg-gray-500 text-white rounded-md"
           onClick={() => {
             //need to filter the data
             const data = filterData(searchText, allRestaurants);
@@ -55,13 +55,13 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap " data-testid="res-list">
+      <div className="flex flex-wrap ml-10" data-testid="res-list">
         {/* You have to write logic for NO restraunt fount here */}
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
               to={"/restaurant/" + restaurant.data.id}
-              key={restaurant.data.id}
+              key={restaurant.data.id} 
             >
               <RestaurantCard {...restaurant.data} />
             </Link>

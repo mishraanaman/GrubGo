@@ -22,9 +22,9 @@ const RestaurantMenu = () => {
   ) : (
     <div className="flex">
       <div>
-        <h1>Restraunt id: {resId}</h1>
+        <h1>Restaraunt id: {resId}</h1>
         <h2>{restaurant?.name}</h2>
-        <img src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
+        <img className="h-25" src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
         <h3>{restaurant?.area}</h3>
         <h3>{restaurant?.city}</h3>
         <h3>{restaurant?.avgRating} stars</h3>
@@ -38,10 +38,10 @@ const RestaurantMenu = () => {
               {item.name} -{" "}
               <button
                 data-testid="addBtn"
-                className="p-1 bg-green-50"
+                className="p-1 bg-slate-50 "
                 onClick={() => addFoodItem(item)}
               >
-                Add
+                +1
               </button>
             </li>
           ))}
