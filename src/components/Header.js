@@ -54,9 +54,8 @@ const Header = () => {
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)} className="font-bold mr-5 my-4 shadow-md px-1 bg-red-400 transition delay-250 rounded-lg w-24 h-10">Logout</button>  
       ) : (
-        <Link to="/login">
         <button onClick={() => setIsLoggedIn(true)} className="font-bold mr-5 my-4 shadow-md px-1 bg-green-400 transition delay-250 rounded-lg w-24 h-10">Login</button>
-        </Link>
+
       )}
 
     </div>
