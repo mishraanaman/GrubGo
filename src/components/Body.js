@@ -18,12 +18,19 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    try{
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.7605545&lng=83.3731675&page_type=DESKTOP_WEB_LISTING"
+      );
+      const json = await data.json();
+      console.warn(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+      setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+    }catch{
+      console.error('Error Fetching Data', error)
+    }
+ 
   }
   if (!allRestaurants) return null;
 
@@ -58,12 +65,13 @@ const Body = () => {
       <div className="flex flex-wrap ml-10" data-testid="res-list">
         {/* You have to write logic for NO restraunt fount here */}
         {filteredRestaurants.map((restaurant) => {
+          console.log(restaurant)
           return (
             <Link
-              to={"/restaurant/" + restaurant.data.id}
-              key={restaurant.data.id} 
+              to={"/restaurant/" + restaurant.info.id}
+              key={restaurant.info.id} 
             >
-              <RestaurantCard {...restaurant.data} />
+              <RestaurantCard {...restaurant.info} />
             </Link>
           );
         })}
