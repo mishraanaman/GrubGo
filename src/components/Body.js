@@ -23,9 +23,9 @@ const Body = () => {
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.7605545&lng=83.3731675&page_type=DESKTOP_WEB_LISTING"
       );
       const json = await data.json();
-      console.warn(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      console.warn(json?.data)
+      setAllRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     }catch{
       console.error('Error Fetching Data', error)
